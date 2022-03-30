@@ -89,8 +89,8 @@ contract supplyChain {
     }
 
     function newOwner(uint32 _user1Id,uint32 _user2Id, uint32 _prodId) onlyOwner(_prodId) public returns (bool) {
-        participant memory p1 = participants[_user1Id];
-        participant memory p2 = participants[_user2Id];
+        participant memory p1 = participants[_user1Id]; //extract user address
+        participant memory p2 = participants[_user2Id]; //extract user address
         uint32 ownership_id = owner_id++;
         //keccak256 - a hash function enables one to "make a hash" of a super large file/input where each input causes the internal state to scramble up some more. The hash should entirely change if a single bit of data in the source is different - unlike say a CRC32, or a checksum
         if(keccak256(abi.encodePacked(p1.participantType)) == keccak256("Manufacturer")
