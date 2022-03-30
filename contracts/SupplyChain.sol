@@ -35,7 +35,7 @@ contract supplyChain {
     mapping(uint32 => uint32[]) public productTrack;  // ownerships by Product ID (product_id) / Movement track for a product
 
     // Transfer ownership of the product in the supplychain smart contract if the right conditions are met
-    event TransferOwnership(uint32 productId);
+    event TransferOwnership(uint32 indexed productId);
 
     function addParticipant(string memory _name, string memory _pass, address _pAdd, string memory _pType) public returns (uint32){
         uint32 userId = participant_id++;
